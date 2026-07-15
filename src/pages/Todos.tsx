@@ -3,6 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 import AddTodo from "../components/AddTodo";
 import TodoList from "../components/TodoList";
@@ -71,8 +73,12 @@ function Todos() {
         </Toolbar>
       </AppBar>
 
-      <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <Container maxWidth="md" sx={{ mt: 4 }}>   {/* ← this centers everything */}
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+          <AddTodo addTodo={addTodo} />
+          <TodoList todos={todos} deleteTodo={deleteTodo} />
+        </Box>
+      </Container>
     </>
   );
 }
